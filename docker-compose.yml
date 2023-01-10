@@ -1,0 +1,41 @@
+# DOCKER COMPOSE
+# este archivo es sensible a tabulaciones
+# archivo yamel, enfocado a configuraciones
+# este archivo crea una red donde estaran todos los contenedores aca descritos
+
+# version que usamos para trabajar con docker compose
+version: "3.9"
+# agregamos contenedores que queremos usar
+# cada contenedor tiene su nombre
+# tiene su configuracion de puertos
+# tiene los otros contenedores con los que se relaciona
+services:
+  chanchito:
+    build: .
+    # primer puerto es del host y el segundo el que expone el contenedor
+    ports:
+      - "3000:3000"
+    links:
+      - monguito
+  monguito:
+    # si un contenedor contiene una imagen se pone aca la imagen que se usara, si esta imagen existe la usa y si no la descarga
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=nico
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-data:/data/db
+      # mysql -> /var/lib/mysql
+      # postgres -> /var/lib/postgresql/data
+
+volumes:
+  mongo-data:
+
+# Este archivo es lo mismo que ejecutar todas estas lineas de codigo
+# 1. $ docker network create nombre_red
+# 2. $ docker pull mongo
+# 3. $ docker create -p27017:27017 --name monguito --network nombre_red -e MONGO_INITDB_ROOT_USERNAME=nico -e MONGO_INITDB_ROOT_PASSWORD=password mongo
+# 4. $ docker build -t nombre_imagen .
+# 5. $ docker create -p3000:3000 --name chanchito --network nombre_red nombre_imagen
