@@ -81,3 +81,12 @@ Una tecnologia para encapsular dependencias, proyectos, archivos de configuracio
 - Volumen de anfitrion: se deside que montar y donde
 - Volumen nombrado: igual que el anonimo pero si se puede referenciar el volumen
 - Los volumenes tambien se configuran en el archivo de configuracion compose
+
+## Ambientes y hot reload
+
+- para cada ambiente requerimos tener nuestro Docrfile y nuestro docker-compose
+- $ docker compose -f docker-compose.dev.yml -> indica un archivo docker-compose customisado que no sea el docker-compose.yml
+
+## Compartir proyecto
+
+Siendo esto el desarrollo con docker se facilita mucho, puesto que es solo compartir el poyecto o los docker y con el comando $ docker compose, todos tienen las mismas dependecias, librerias, entre otras cosas

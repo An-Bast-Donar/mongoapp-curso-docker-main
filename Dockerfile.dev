@@ -1,0 +1,12 @@
+FROM node:18
+
+# instalamos nodemon para que detecte cambios al subir cambios en una app de node
+RUN npm i -g nodemon
+RUN mkdir -p /home/app
+
+# indicamos la ruta donde trabajaremos
+WORKDIR /home/app
+
+EXPOSE 3000
+
+CMD ["nodemon", "index.js"]

@@ -1,0 +1,30 @@
+version: "3.9"
+services:
+  chanchito:
+    build:
+      # indica donde se encuentra laaplicaicon donde trabajara
+      context: .
+      # indica el archivo dockerfile al que esta ligado
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    links:
+      - monguito
+    # indica que usa un volumen
+    volumes:
+      # volumen anonimo, se guarda la ruta actual y la ruta de destino
+      - .:/home/app
+  monguito:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=nico
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-data:/data/db
+      # mysql -> /var/lib/mysql
+      # postgres -> /var/lib/postgresql/data
+
+volumes:
+  mongo-data:
