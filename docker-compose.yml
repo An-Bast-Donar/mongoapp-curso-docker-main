@@ -25,12 +25,16 @@ services:
     environment:
       - MONGO_INITDB_ROOT_USERNAME=nico
       - MONGO_INITDB_ROOT_PASSWORD=password
+    # definicion del volumen que usara este contenedor
     volumes:
+      # en este volumen se guardan los datos de esta ruta, esta ruta es donde se guardan los datos de la bd, esto se puede consultar en internet
       - mongo-data:/data/db
       # mysql -> /var/lib/mysql
       # postgres -> /var/lib/postgresql/data
 
+# definicion de todos los volumenes en la app
 volumes:
+  # nombre del volumen (mongo-data)
   mongo-data:
 
 # Este archivo es lo mismo que ejecutar todas estas lineas de codigo

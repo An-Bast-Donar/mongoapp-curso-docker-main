@@ -71,3 +71,13 @@ Una tecnologia para encapsular dependencias, proyectos, archivos de configuracio
 - En el archivo docker-compose.yml se describe como las variables en estos pasos requeridas se pueden encapsular en un solo archivo que lo crea todo.
 - $ docker compose up -> crea y levanta todas las imagenes, contenedores y redes espesificadas en nuestro archivo de configuracion, este comando se queda escuchando todos los log de todos los contenedores creados
 - $ docker compose down -> borra los contenedores y red creados en el archivo de configuracion
+
+## Volumenes
+
+- Al borrar un contenedor se borrar los datos guardados en ese contenedor, por ejemplo datos de base de datos, al bajar un contenedor se pierden los datos ahi existiendo, o al cambiar codigo en nuestro proyecto habria que recrear constantemente una imagen, para subir cambios, todo esto se soluciona con los volumenes
+
+- Los volumenes guardan parte de nuestros contenedores en nuestro host, persistiendo datos asi se detenga la ejecucion del contenedor o se eliminen
+- Volumen anonimo: indica la ruta que se desea montar, docker se encargaa de guardarlo donde el quiera, luego ese contenido no se puede referenciar para por ejemplo ser usado en otros contenedores
+- Volumen de anfitrion: se deside que montar y donde
+- Volumen nombrado: igual que el anonimo pero si se puede referenciar el volumen
+- Los volumenes tambien se configuran en el archivo de configuracion compose
