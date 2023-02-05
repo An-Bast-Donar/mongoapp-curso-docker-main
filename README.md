@@ -90,3 +90,7 @@ Una tecnologia para encapsular dependencias, proyectos, archivos de configuracio
 ## Compartir proyecto
 
 Siendo esto el desarrollo con docker se facilita mucho, puesto que es solo compartir el poyecto o los docker y con el comando $ docker compose, todos tienen las mismas dependecias, librerias, entre otras cosas
+
+## Kubernetes
+
+Un sistema de gestion de contenedores de codigo abierto
